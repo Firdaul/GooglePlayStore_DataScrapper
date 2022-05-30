@@ -5,8 +5,8 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 import csv
 from fuzzywuzzy import fuzz
 
-#data already clean
-data = pd.read_csv("BPOM SA.csv")
+#input your clean data csv
+data = pd.read_csv("YourData.csv")
 
 #load indonesian opinion words
 pos = pd.read_csv('pos.csv', delimiter=';')
@@ -55,7 +55,7 @@ for w in words:
 
 pos_score = sum(senpos)
 neg_score = sum(senneg)
-#skor antara -5 hingga +5
+#score betweer -5 till +5
 sentiment = (pos_score + neg_score) / (len(senpos) + len(senneg))
 
 print(pos_score)
